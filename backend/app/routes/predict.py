@@ -1,7 +1,7 @@
 """
 Disease prediction and product recommendation endpoint
 """
-
+from huggingface_hub import hf_hub_download
 from fastapi import APIRouter, File, UploadFile, HTTPException, status
 from datetime import datetime
 import tensorflow as tf
@@ -18,31 +18,32 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/predict", tags=["Prediction"])
 
 # Load model once
+
 _model = None
-_disease_mapping = None
 
 def load_model():
-    """Load model if not already loaded"""
-    global _model, _disease_mapping
+    """Load model from Hugging Face Hub"""
+    global _model
     
     if _model is None:
-        logger.info("Loading ML model...")
+        logger.info("📥 Loading model from Hugging Face Hub...")
+        
         try:
-            _model = keras.models.load_model("ml_model/model.h5")
-            logger.info("Model loaded successfully!")
+            # Download model from Hugging Face
+            model_path = hf_hub_download(
+                repo_id="AYUSHHHH99/_plant-disease-model",  # ⭐ CORRECT REPO ID
+                filename="model.h5"
+            )
+            
+            logger.info(f"✅ Model loaded from: {model_path}")
+            _model = keras.models.load_model(model_path)
+            logger.info("✅ Model ready for predictions!")
+            
         except Exception as e:
-            logger.error(f"Failed to load model: {e}")
+            logger.error(f"❌ Failed to load model: {e}")
             raise
     
-    if _disease_mapping is None:
-        try:
-            with open("ml_model/disease_mapping.json", "r") as f:
-                _disease_mapping = json.load(f)
-        except Exception as e:
-            logger.error(f"Failed to load disease mapping: {e}")
-            raise
-    
-    return _model, _disease_mapping
+    return _model
 
 def preprocess_image(image_bytes: bytes) -> np.ndarray:
     """Preprocess image for model"""
