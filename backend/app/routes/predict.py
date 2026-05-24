@@ -1,6 +1,7 @@
 """
 Disease prediction and product recommendation endpoint
 """
+import keras
 from huggingface_hub import hf_hub_download
 from fastapi import APIRouter, File, UploadFile, HTTPException, status
 from datetime import datetime
@@ -31,12 +32,12 @@ def load_model():
         try:
             # Download model from Hugging Face
             model_path = hf_hub_download(
-                repo_id="AYUSHHHH99/_plant-disease-model",  # ⭐ CORRECT REPO ID
+                repo_id="AYUSHHHH99/_plant-disease-model",
                 filename="model.h5"
             )
             
-            logger.info(f"✅ Model loaded from: {model_path}")
-            _model = keras.models.load_model(model_path)
+            logger.info(f"✅ Model downloaded to: {model_path}")
+            _model = keras.saving.load_model(model_path)
             logger.info("✅ Model ready for predictions!")
             
         except Exception as e:
