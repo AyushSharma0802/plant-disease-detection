@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Scanner.css';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
@@ -40,6 +41,7 @@ const PRODUCTS = [
 ];
 
 export default function Scanner() {
+  const navigate = useNavigate(); 
   const [selectedImage, setSelectedImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [result, setResult] = useState(null);
@@ -196,7 +198,7 @@ export default function Scanner() {
               <li>Repeat treatment every 7-10 days if needed</li>
               <li>Consult our AI Expert for more detailed guidance</li>
             </ul>
-            <button className="chat-button" onClick={() => window.location.href = '/chat'}>
+            <button className="chat-button" onClick={() => navigate('/chat')}>
               💬 Chat with Expert
             </button>
           </div>
