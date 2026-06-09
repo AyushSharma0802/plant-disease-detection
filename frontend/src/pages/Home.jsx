@@ -1,8 +1,9 @@
 import React from 'react';
 import { Leaf, Upload, Brain, ShoppingCart, TrendingUp } from 'lucide-react';
 import '../styles/Home.css';
-
+import { useNavigate } from 'react-router-dom';
 export default function Home({ onNavigate }) {
+  const navigate = useNavigate();
   return (
     <div className="home-container">
       <nav className="navbar">
