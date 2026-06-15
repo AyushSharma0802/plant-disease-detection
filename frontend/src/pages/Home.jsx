@@ -2,8 +2,9 @@ import React from 'react';
 import { Leaf, Upload, Brain, ShoppingCart, TrendingUp } from 'lucide-react';
 import '../styles/Home.css';
 import { useNavigate } from 'react-router-dom';
-export default function Home({ onNavigate }) {
+export default function Home() {
   const navigate = useNavigate();
+
   return (
     <div className="home-container">
       <nav className="navbar">
@@ -13,13 +14,13 @@ export default function Home({ onNavigate }) {
             <h1>LeafCare</h1>
           </div>
           <div className="nav-links">
-            <button className="btn-secondary" onClick={() => onNavigate('chat')}>
+            <button className="btn-secondary" onClick={() => navigate('/chat')}>
               💬 Chat with Expert
             </button>
-            <button className="btn-secondary" onClick={() => onNavigate('cart')}>
+            <button className="btn-secondary" onClick={() => navigate('/cart')}>
               🛒 Cart
             </button>
-            <button className="btn-primary" onClick={() => onNavigate('scanner')}>
+            <button className="btn-primary" onClick={() => navigate('/scanner')}>
               Get Started
             </button>
           </div>
