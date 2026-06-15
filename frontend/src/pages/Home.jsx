@@ -35,9 +35,9 @@ export default function Home({ onNavigate }) {
           </p>
           
           <div className="cta-buttons">
-            <button className="btn-primary-large" onClick={onNavigate}>
+            <button className="btn-primary-large" onClick={() => onNavigate('scanner')}>
               📸 Scan Plant Now
-            </button>
+              </button>
             <button className="btn-secondary">Learn More</button>
           </div>
 
