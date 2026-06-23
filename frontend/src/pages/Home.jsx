@@ -14,15 +14,15 @@ export default function Home() {
             <h1>LeafCare</h1>
           </div>
           <div className="nav-links">
-            <button className="btn-secondary" onClick={() => navigate('/chat')}>
-              💬 Chat with Expert
-            </button>
-            <button className="btn-secondary" onClick={() => navigate('/cart')}>
-              🛒 Cart
-            </button>
-            <button className="btn-primary" onClick={() => navigate('/scanner')}>
-              Get Started
-            </button>
+              <button className="btn-secondary" onClick={() => navigate('/chat')}>
+                💬 Chat with Expert
+              </button>
+              <button className="btn-secondary" onClick={() => navigate('/cart')}>
+                🛒 Cart
+              </button>
+              <button className="btn-primary" onClick={() => navigate('/scan')}>  {/* was /scanner */}
+                Get Started
+              </button>
           </div>
         </div>
       </nav>
@@ -36,9 +36,9 @@ export default function Home() {
           </p>
           
           <div className="cta-buttons">
-            <button className="btn-primary-large" onClick={() => Navigate('scanner')}>
-              📸 Scan Plant Now
-              </button>
+            <button className="btn-primary-large" onClick={() => navigate('/scan')}>  {/* was Navigate('scanner') */}
+                📸 Scan Plant Now
+            </button>
             <button className="btn-secondary">Learn More</button>
           </div>
 
