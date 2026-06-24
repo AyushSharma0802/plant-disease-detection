@@ -2,8 +2,10 @@ import React from 'react';
 import { ArrowLeft, Trash2, Plus, Minus } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import '../styles/Cart.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function Cart({ onBack }) {
+export default function Cart() {
+  const navigate = useNavigate(); 
   const { cartItems, removeFromCart, updateQuantity, getTotalPrice, getTotalItems } = useCart();
 
   const handleCheckout = () => {
@@ -14,7 +16,7 @@ export default function Cart({ onBack }) {
   return (
     <div className="cart-container">
       <div className="cart-header">
-        <button className="btn-back" onClick={onBack}>
+        <button className="btn-back" onClick={() => navigate('/')}>
           <ArrowLeft size={20} /> Back
         </button>
         <h1>🛒 Shopping Cart</h1>

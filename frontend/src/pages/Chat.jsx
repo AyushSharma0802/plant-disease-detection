@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, Send, Loader } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'; 
 import '../styles/Chat.css';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
-export default function Chat({ onBack }) {
+export default function Chat() {
+  const navigate = useNavigate()
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -80,7 +82,7 @@ export default function Chat({ onBack }) {
   return (
     <div className="chat-container">
       <div className="chat-header">
-        <button className="btn-back" onClick={onBack}>
+            <button className="btn-back" onClick={() => navigate('/')}>
           <ArrowLeft size={20} /> Back
         </button>
         <div className="chat-title">
