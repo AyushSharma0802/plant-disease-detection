@@ -20,8 +20,8 @@ export default function Home() {
               <button className="btn-secondary" onClick={() => navigate('/cart')}>
                 🛒 Cart
               </button>
-              <button className="btn-primary" onClick={() => navigate('/scan')}>  {/* was /scanner */}
-                Get Started
+              <button className="btn-secondary" onClick={() => navigate('/scan')}>  {/* was /scanner */}
+                🌱 Get Started
               </button>
           </div>
         </div>
