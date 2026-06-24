@@ -16,7 +16,9 @@
 
 .chat-title h1 {
   color: #1f2937;
-  margin: 0;
+  margin: 0;       /* This is good, but let's make sure it resets cleanly */
+  font-size: 24px; /* Give it a predictable size */
+  line-height: 1.2;
 }
 
 .chat-title p {
@@ -164,4 +166,29 @@
   margin: 12px 0 0 0;
   color: #9ca3af;
   font-size: 12px;
+}
+.btn-back {
+  display: inline-flex; /* Ensures text and Lucide icon align perfectly on the baseline */
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-family: inherit; /* Inherits main font rather than browser button font */
+  line-height: 1;       /* Forces strict bounding box alignment */
+}
+
+.btn-back:hover {
+  background: #f3f4f6;
+  color: #111827; /* Darken slightly on hover for visual feedback */
+}
+
+.btn-back:active {
+  transform: scale(0.97); /* Slight click feedback */
 }

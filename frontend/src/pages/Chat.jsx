@@ -81,16 +81,18 @@ export default function Chat() {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">
+          <div className="chat-header">
+          <div className="header-content" style={{ display: 'flex', alignItems: 'center', gap: '20px', maxWidth: '800px', margin: '0 auto', width: '100%' }}>
             <button className="btn-back" onClick={() => navigate('/')}>
-          <ArrowLeft size={20} /> Back
-        </button>
+              <ArrowLeft size={20} /> Back
+            </button>
+
         <div className="chat-title">
           <h1>🌿 Plant Expert AI</h1>
           <p>Get instant advice from our AI expert</p>
         </div>
       </div>
-
+    </div>
       <div className="chat-messages">
         {messages.map((message) => (
           <div key={message.id} className={`message ${message.type}`}>
