@@ -16,12 +16,15 @@ export default function Cart() {
   return (
     <div className="cart-container">
       <div className="cart-header">
-        <button className="btn-back" onClick={() => navigate('/')}>
-          <ArrowLeft size={20} /> Back
-        </button>
-        <h1>🛒 Shopping Cart</h1>
-        <div className="cart-count">{getTotalItems()}</div>
+        <div className="header-layout">
+          <button className="btn-back" onClick={() => navigate('/')}>
+            <ArrowLeft size={20} /> Back
+          </button>
+          <h1>🛒 Shopping Cart</h1>
+          <div className="cart-count">{getTotalItems()}</div>
+        </div>
       </div>
+      
 
       <div className="cart-content">
         {cartItems.length === 0 ? (

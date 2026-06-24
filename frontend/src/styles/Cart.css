@@ -5,17 +5,16 @@
 
 .cart-header {
   background: white;
-  padding: 20px;
+  padding: 16px 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
+  width: 100%;
 }
 
 .cart-header h1 {
-  flex: 1;
+  margin: 0;
+  font-size: 24px;
   color: #1f2937;
+  /* flex: 1; <-- Removed to prevent stretching */
 }
 
 .cart-count {
@@ -25,6 +24,7 @@
   border-radius: 20px;
   font-weight: 700;
   font-size: 14px;
+  margin-left: auto; /* Cleanly pushes the count item to the far right side */
 }
 
 .cart-content {
@@ -85,6 +85,15 @@
   color: #1f2937;
   font-size: 16px;
   margin-bottom: 5px;
+}
+
+.header-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .item-info p {
@@ -212,4 +221,30 @@
 .btn-checkout:hover {
   background: #059669;
   transform: translateY(-2px);
+}
+
+.btn-back {
+  display: inline-flex; /* Ensures text and Lucide icon align perfectly on the baseline */
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-family: inherit; /* Inherits main font rather than browser button font */
+  line-height: 1;       /* Forces strict bounding box alignment */
+}
+
+.btn-back:hover {
+  background: #f3f4f6;
+  color: #111827; /* Darken slightly on hover for visual feedback */
+}
+
+.btn-back:active {
+  transform: scale(0.97); /* Slight click feedback */
 }
